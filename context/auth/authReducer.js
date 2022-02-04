@@ -6,7 +6,8 @@ export default (state, action) => {
 			return{
 				...state,
 				usuario: action.payload,
-				mensaje: null
+				mensaje: null,
+				autenticado: true
 			}
 		case types.REGISTRO_EXITOSO:
 			return{

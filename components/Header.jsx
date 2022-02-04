@@ -18,17 +18,17 @@ const Header = () => {
 	}
 
 	return(
-		<header className="font-poppins flex items-center justify-between px-20 py-5 shadow">
+		<header className="font-poppins flex flex-col md:flex-row items-center justify-between md:px-20 py-5 shadow">
 				<h1 onClick={() => redirect()} className="cursor-pointer text-4xl font-bold font-poppins"><i className="text-red-500 fas fa-file-download"></i> File Delivery</h1>
 			{usuario ?
-				<div className="flex items-center">
-					<p className="text-xl">Hola, <span className="font-bold text-red-600 mr-3">{usuario.nombre}</span></p>
+				<div className="flex flex-col md:flex-row mt-3 md:mt-0 items-center mt-3 md:mt-0">
+					<p className="text-xl mb-3 md:mb-0">Hola, <span className="font-bold text-red-600 mr-3">{usuario.nombre}</span></p>
 					<button onClick={cerrarSesion} className="boton-hollow mr-3">Cerrar Sesión</button>
 				</div>
 			:
-			<div>
-				<Link href="/iniciar-sesion"><a className="boton-hollow mr-3">Iniciar Sesión</a></Link>
-				<Link href="/crear-cuenta"><a className="boton">Crear Cuenta</a></Link>
+			<div className="flex flex-col md:flex-row mt-3 md:mt-0">
+				<Link href="/iniciar-sesion"><a className="boton-hollow md:mr-3">Iniciar Sesión</a></Link>
+				<Link href="/crear-cuenta"><a className="boton mt-3 md:mt-0">Crear Cuenta</a></Link>
 			</div>
 			}
 		</header>

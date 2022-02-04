@@ -2,13 +2,14 @@ import { useCallback, useContext } from 'react'
 import { useDropzone } from 'react-dropzone'
 import appContext from '../context/app/appContext'
 import authContext from '../context/auth/authContext'
+import FormularioDescarga from './FormularioDescarga'
 
 const Dropzone = () => {
 
 	const AppContext = useContext(appContext)
 	const {mostrarAlerta, subirArchivo, crearEnlace, cargando} = AppContext
 	const AuthContext = useContext(authContext)
-	const {usuario} = AuthContext
+	const {usuario, autenticado} = AuthContext
 
 	const onDropRejected = () => {
 		mostrarAlerta("Debes estar registrado para subir archivos mayores a 1 MB")
@@ -32,7 +33,7 @@ const Dropzone = () => {
 	))
 
 	return(
-		<div className="md:flex-1 rounded flex flex-col justify-center items-center border-dashed border-2 border-red-600 bg-red-100 hover:bg-red-50 transition-all duration-200 ease-in-out mb-10 lg:mb-0 lg:mr-10">
+		<div className="h-60 lg:h-auto flex-1 rounded flex flex-col justify-center items-center border-dashed border-2 border-red-600 bg-red-100 transition-all duration-200 ease-in-out mb-10 lg:mb-0 lg:mr-10">
 			{acceptedFiles.length > 0 ?
 				<div className="py-5 flex flex-col justify-center items-center">
 					<ul className="px-3 w-11/12 shadow my-3 text-center bg-white bg-opacity-75 text-red-600 py-3">
@@ -43,7 +44,15 @@ const Dropzone = () => {
 								  <div className="bounce2"></div>
 								  <div className="bounce3"></div>
 								</div>
-							:  <button onClick={() => crearEnlace()} type="button" className="boton"><i className="fas fa-link"></i> Crear Enlace</button>}
+					:
+					(
+						<>
+							<FormularioDescarga autenticado={autenticado}/>
+							<button onClick={() => crearEnlace()} type="button" className="boton"><i className="fas fa-link"></i> Crear Enlace</button>
+						</>
+					)
+
+					}
 				</div>
 			:
 			<div {...getRootProps({ className: "dropzone focus:outline-none flex justify-center items-center w-full flex-1 cursor-pointer" })}>

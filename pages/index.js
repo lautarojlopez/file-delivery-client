@@ -14,7 +14,10 @@ const Home = () => {
 	const {mensaje_archivo, borrarAlerta, url} = AppContext
 
 	useEffect(() => {
-		usuarioAutenticado()
+		const token = localStorage.getItem('token')
+		if(token){
+			usuarioAutenticado()
+		}
 		borrarAlerta()
 	}, [])
 
@@ -38,7 +41,8 @@ const Home = () => {
 
 				<div className="lg:w-6/12">
 					<p className="font-black text-gray-800 pb-3 text-2xl">Sube archivos y compartelos de manera privada limitando las descargas</p>
-					<p className="py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa accusantium quo quasi doloremque laborum amet aliquid tempore iusto adipisci commodi beatae, blanditiis, inventore neque aperiam cumque voluptatem quod eos consequuntur.</p>
+					<p className="py-3"><span className="text-red-600 font-bold">File Delivery</span> te permite compartir archivos de manera privada cifrándolos con contraseñas y eliminandolos luego de un numero de descargas, asegurandote de que tus archivos no permanezcan en línea para siempre.</p>
+					<p className="text-red-600 mb-5 font-semibold">Crea una cuenta ahora mismo para acceder a más opciones</p>
 					<Link href="/crear-cuenta"><a className="boton block text-center mt-2">Crear Cuenta</a></Link>
 				</div>
 			</div>

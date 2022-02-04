@@ -85,6 +85,21 @@ const AppState = ({children}) => {
 		})
 	}
 
+	const addPassword = (password) => {
+		dispatch({
+			type: types.ADD_PASSWORD,
+			payload: password
+		})
+	}
+
+	const addNumeroDescargas = (descargas) => {
+		const intDescargas = Number(descargas)
+		dispatch({
+			type: types.ADD_NUMERO_DESCARGAS,
+			payload: intDescargas
+		})
+	}
+
 	return(
 		<appContext.Provider
 			value={{
@@ -96,11 +111,13 @@ const AppState = ({children}) => {
 				nombre: state.nombre,
 				autor: state.autor,
 				url: state.url,
+				addNumeroDescargas,
 				mostrarAlerta,
 				borrarAlerta,
 				subirArchivo,
+				addPassword,
 				crearEnlace,
-				resetState
+				resetState,
 			}}
 		>
 			{children}

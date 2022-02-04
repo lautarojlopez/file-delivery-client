@@ -34,6 +34,28 @@ export default (state, action) => {
 				...state,
 				url: action.payload
 			}
+		case types.RESET_STATE:
+			return{
+				...state,
+				mensaje_archivo: '',
+				nombre: '',
+				nombre_original: '',
+				cargando: null,
+				descargas: 1,
+				password: '',
+				autor: null,
+				url: ''
+			}
+		case types.ADD_PASSWORD:
+			return{
+				...state,
+				password: action.payload
+			}
+		case types.ADD_NUMERO_DESCARGAS:
+			return{
+				...state,
+				descargas: action.payload
+			}
 		default:
 			return state
 	}
