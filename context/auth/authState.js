@@ -70,7 +70,7 @@ const AuthState = ({children}) => {
 		} catch (e) {
 			dispatch({
 				type: types.LOGIN_ERROR,
-				payload: response.data.usuario
+				payload: e.response.data.usuario
 			})
 		}
 	}

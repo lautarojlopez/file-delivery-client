@@ -33,17 +33,22 @@ const Dropzone = () => {
 	))
 
 	return(
-		<div className="h-60 lg:h-auto flex-1 rounded flex flex-col justify-center items-center border-dashed border-2 border-red-600 bg-red-100 transition-all duration-200 ease-in-out mb-10 lg:mb-0 lg:mr-10">
+		<div className="h-88 lg:h-auto flex-1 rounded flex flex-col justify-center items-center border-dashed border-2 border-red-600 bg-red-100 transition-all duration-200 ease-in-out mb-10 lg:mb-0 lg:mr-10">
 			{acceptedFiles.length > 0 ?
 				<div className="py-5 flex flex-col justify-center items-center">
 					<ul className="px-3 w-11/12 shadow my-3 text-center bg-white bg-opacity-75 text-red-600 py-3">
 						{archivos}
 					</ul>
-					{cargando ? <div className="spinner">
-								  <div className="bounce1"></div>
-								  <div className="bounce2"></div>
-								  <div className="bounce3"></div>
-								</div>
+					{cargando ?
+						<>
+							<div className="spinner">
+							  <div className="bounce1"></div>
+							  <div className="bounce2"></div>
+							  <div className="bounce3"></div>
+							</div>
+							<p className="text-center text-red-600 font-bold my-3">Subiendo...</p>
+						</>
+
 					:
 					(
 						<>

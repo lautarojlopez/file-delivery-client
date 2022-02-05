@@ -32,7 +32,7 @@ const Home = () => {
 					url ? (
 						<div className="md:flex-1 rounded flex flex-col justify-center items-center transition-all duration-200 ease-in-out mb-10 lg:mb-0 lg:mr-10">
 							<p className="text-xl text-center">Tu URL es:</p>
-							<a href={`${process.env.frontendURL}/enlaces/${url}`} target="_blank" className="my-3 text-red-600 hover:text-red-500 transition-all ease-in-out duration-150">{`${process.env.frontendURL}/archivo/${url}`}</a>
+							<a href={`${process.env.frontendURL}/enlaces/${url}`} rel="noreferrer" target="_blank" className="my-3 text-red-600 hover:text-red-500 transition-all ease-in-out duration-150">{`${process.env.frontendURL}/enlaces/${url}`}</a>
 							<button onClick={() => navigator.clipboard.writeText(`${process.env.frontendURL}/enlaces/${url}`)} type="button" className="boton"><i className="fas fa-copy mr-1"></i> Copiar Enlace</button>
 						</div>
 					)

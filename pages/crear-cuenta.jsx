@@ -5,7 +5,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import authContext from '../context/auth/authContext'
 
-const crearCuenta = () => {
+const CrearCuenta = () => {
 
 	//Acceder al statede auth
 	const AuthContext = useContext(authContext)
@@ -55,4 +55,4 @@ const crearCuenta = () => {
 
 }
 
-export default crearCuenta
+export default CrearCuenta

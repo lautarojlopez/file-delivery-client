@@ -3,7 +3,6 @@ import Layout from '../../components/Layout'
 import axiosClient from '../../config/axios'
 import appContext from '../../context/app/appContext'
 import Error from '../../components/Error'
-import {useRouter} from 'next/router'
 
 export async function getStaticProps({params}){
 	const {enlace} = params
@@ -27,12 +26,11 @@ export async function getStaticPaths(){
 	}
 }
 
-export default ({enlace}) => {
+const Enlace = ({enlace}) => {
 
 	const AppContex = useContext(appContext)
 	const {mostrarAlerta, borrarAlerta, mensaje_archivo} = AppContex
 	const [isProtected, setIsProtected] = useState(enlace.password ? true : false)
-	const router = useRouter()
 
 	const verificarPassword = async (e) => {
 		e.preventDefault()
@@ -72,7 +70,7 @@ export default ({enlace}) => {
 							<h2 className="text-2xl text-center my-3">Descargar <span className="text-red-600">{enlace.nombre}</span></h2>
 							<p  className="text-lg text-center mb-3">Descargas restantes: <span className="text-red-600">{enlace.descargas}</span></p>
 							<div className="flex justify-center items-center">
-								<a href={`${process.env.backendURL}/api/archivos/${enlace.archivo}`} target="_blank" className="boton"><i className="mr-1 fas fa-download"></i> Descargar</a>
+								<a href={`${process.env.backendURL}/api/archivos/${enlace.archivo}`} rel="noreferrer" target="_blank" className="boton"><i className="mr-1 fas fa-download"></i> Descargar</a>
 							</div>
 						</div>
 					</div>
@@ -82,3 +80,5 @@ export default ({enlace}) => {
 	)
 
 }
+
+export default Enlace

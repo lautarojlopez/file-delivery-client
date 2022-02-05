@@ -6,7 +6,7 @@ import * as yup from 'yup'
 import authContext from '../context/auth/authContext'
 import router from 'next/router'
 
-const iniciarSesion = () => {
+const IniciarSesion = () => {
 
 	//Context
 	const AuthContext = useContext(authContext)
@@ -55,4 +55,4 @@ const iniciarSesion = () => {
 	)
 }
 
-export default iniciarSesion
+export default IniciarSesion

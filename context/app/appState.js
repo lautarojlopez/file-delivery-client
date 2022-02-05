@@ -49,7 +49,7 @@ const AppState = ({children}) => {
 			})
 
 		} catch (e) {
-			console.log(e)
+			console.log(e.response)
 			dispatch({
 				type: types.SUBIR_ARCHIVO_ERROR,
 				payload: e.response.data.msg
